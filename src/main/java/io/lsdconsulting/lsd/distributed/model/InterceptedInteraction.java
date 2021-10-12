@@ -1,14 +1,18 @@
 package io.lsdconsulting.lsd.distributed.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.ZonedDateTime;
 import java.util.Collection;
 import java.util.Map;
 
-@Value
+@Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class InterceptedInteraction {
     String traceId;
     String body;
