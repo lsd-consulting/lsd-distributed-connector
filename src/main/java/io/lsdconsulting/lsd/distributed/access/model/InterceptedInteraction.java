@@ -1,4 +1,4 @@
-package io.lsdconsulting.lsd.distributed.model;
+package io.lsdconsulting.lsd.distributed.access.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

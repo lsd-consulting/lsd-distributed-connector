@@ -1,6 +1,6 @@
-package io.lsdconsulting.lsd.distributed.repository;
+package io.lsdconsulting.lsd.distributed.access.repository;
 
-import io.lsdconsulting.lsd.distributed.model.InterceptedInteraction;
+import io.lsdconsulting.lsd.distributed.access.model.InterceptedInteraction;
 
 import java.util.List;
 
