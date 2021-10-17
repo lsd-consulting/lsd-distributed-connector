@@ -1,0 +1,22 @@
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "skipped", "failed"
+    }
+    finalizedBy jacocoTestReport
+    afterSuite { desc, result ->
+        if (!desc.parent) {
+            println "Unit test results: (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+            if (result.testCount == 0) {
+                throw new IllegalStateException("No tests were found. Failing the build")
+            }
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'org.hamcrest:hamcrest-core:2.2'
+    testImplementation 'org.apache.commons:commons-lang3:3.12.0'
+}
