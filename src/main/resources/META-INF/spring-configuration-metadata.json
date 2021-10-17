@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "lsd.dist.db.connectionString",
+      "type": "java.lang.String"
+    }
+  ]
+}
