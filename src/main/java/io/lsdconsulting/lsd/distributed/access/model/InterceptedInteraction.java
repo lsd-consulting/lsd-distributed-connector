@@ -23,7 +23,7 @@ public class InterceptedInteraction {
     String path; // the called URL or the exchange name
     String httpStatus;
     String httpMethod;
-    Type type;
+    InteractionType interactionType;
     String profile;
     Long elapsedTime;
     ZonedDateTime createdAt;

@@ -1,6 +1,6 @@
 package io.lsdconsulting.lsd.distributed.access.model;
 
-public enum Type {
+public enum InteractionType {
     REQUEST,
     RESPONSE,
     PUBLISH,

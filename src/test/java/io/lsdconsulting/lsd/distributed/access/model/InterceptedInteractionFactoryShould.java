@@ -25,13 +25,13 @@ class InterceptedInteractionFactoryShould {
     private final String httpStatus = randomAlphanumeric(30);
     private final String httpMethod = randomAlphanumeric(30);
     private final Long elapsedTime = nextLong();
-    private final Type type = Type.values()[RandomUtils.nextInt(0,Type.values().length)];
+    private final InteractionType interactionType = InteractionType.values()[RandomUtils.nextInt(0, InteractionType.values().length)];
 
     private final InterceptedInteractionFactory underTest = new InterceptedInteractionFactory(profile);
 
     @Test
     void buildWithNoElapsedTimeRequestAndResponseHeadersHttpStatusAndHttpMethod() {
-        InterceptedInteraction result = underTest.buildFrom(body, traceId, requestHeaders, serviceName, target, path, type);
+        InterceptedInteraction result = underTest.buildFrom(body, traceId, requestHeaders, serviceName, target, path, interactionType);
 
         assertThat(result.getBody(), is(body));
         assertThat(result.getTraceId(), is(traceId));
@@ -40,7 +40,7 @@ class InterceptedInteractionFactoryShould {
         assertThat(result.getTarget(), is(target));
         assertThat(result.getPath(), is(path));
         assertThat(result.getProfile(), is(profile));
-        assertThat(result.getType(), is(type));
+        assertThat(result.getInteractionType(), is(interactionType));
 
         assertThat(result.getCreatedAt(), is(not(nullValue())));
         assertThat(result.getElapsedTime(), is(nullValue()));
@@ -51,7 +51,7 @@ class InterceptedInteractionFactoryShould {
 
     @Test
     void buildWithNoElapsedTimeAndResponseHeaders() {
-        InterceptedInteraction result = underTest.buildFrom(body, requestHeaders, traceId, serviceName, target, path, httpStatus, httpMethod, type);
+        InterceptedInteraction result = underTest.buildFrom(body, requestHeaders, traceId, serviceName, target, path, httpStatus, httpMethod, interactionType);
 
         assertThat(result.getBody(), is(body));
         assertThat(result.getTraceId(), is(traceId));
@@ -60,7 +60,7 @@ class InterceptedInteractionFactoryShould {
         assertThat(result.getTarget(), is(target));
         assertThat(result.getPath(), is(path));
         assertThat(result.getProfile(), is(profile));
-        assertThat(result.getType(), is(type));
+        assertThat(result.getInteractionType(), is(interactionType));
         assertThat(result.getHttpMethod(), is(httpMethod));
         assertThat(result.getHttpStatus(), is(httpStatus));
 
@@ -71,7 +71,7 @@ class InterceptedInteractionFactoryShould {
 
     @Test
     void buildInterceptedInteractionWithAllProperties() {
-        InterceptedInteraction result = underTest.buildFrom(body, requestHeaders, responseHeaders, traceId, serviceName, target, path, httpStatus, elapsedTime, httpMethod, type);
+        InterceptedInteraction result = underTest.buildFrom(body, requestHeaders, responseHeaders, traceId, serviceName, target, path, httpStatus, elapsedTime, httpMethod, interactionType);
 
         assertThat(result.getBody(), is(body));
         assertThat(result.getTraceId(), is(traceId));
@@ -81,7 +81,7 @@ class InterceptedInteractionFactoryShould {
         assertThat(result.getTarget(), is(target));
         assertThat(result.getPath(), is(path));
         assertThat(result.getProfile(), is(profile));
-        assertThat(result.getType(), is(type));
+        assertThat(result.getInteractionType(), is(interactionType));
         assertThat(result.getHttpMethod(), is(httpMethod));
         assertThat(result.getHttpStatus(), is(httpStatus));
         assertThat(result.getElapsedTime(), is(elapsedTime));
