@@ -4,12 +4,12 @@ plugins {
     id 'signing'
     id 'jacoco'
     id 'io.github.gradle-nexus.publish-plugin' version '1.1.0'
-    id 'pl.allegro.tech.build.axion-release' version '1.13.2'
+    id 'com.palantir.git-version' version '0.12.3'
 }
 
 group = 'io.github.lsd-consulting'
-project.version = scmVersion.version
-println "Build Version = ${project.version}"
+version = gitVersion().replaceAll("^v", "")
+println "Build Version = ${version}"
 
 sourceCompatibility = '11'
 targetCompatibility = '11'
@@ -35,3 +35,4 @@ dependencies {
 
 apply from: 'test.gradle'
 apply from: 'publishing.gradle'
+apply from: 'hooks.gradle'
