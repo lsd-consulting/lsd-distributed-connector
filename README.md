@@ -11,6 +11,3 @@
 
 ## About
 This projects defines the data access interface for the distributed data storage.
-
-Just a change to trigger the release
-
