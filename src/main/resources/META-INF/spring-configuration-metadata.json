@@ -1,7 +1,8 @@
 {
   "properties": [
     {
-      "name": "lsd.dist.db.connectionString",
+      "description": "The connection string to the storage, eg.a database or lsd-distributed-generator-ui.",
+      "name": "lsd.dist.connectionString",
       "type": "java.lang.String"
     }
   ]

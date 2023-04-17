@@ -14,6 +14,7 @@ println "Build Version = ${version}"
 
 sourceCompatibility = '17'
 targetCompatibility = '17'
+compileKotlin.kotlinOptions.jvmTarget = "17"
 
 repositories {
     mavenLocal()
@@ -26,12 +27,6 @@ jacocoTestReport {
         html.enabled(true)
         html.setDestination(project.provider(() -> new File("${project.buildDir}/reports/coverage")))
     }
-}
-
-dependencies {
-    // Lombok
-    compileOnly 'org.projectlombok:lombok:1.18.22'
-    annotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 
 apply from: 'test.gradle'
