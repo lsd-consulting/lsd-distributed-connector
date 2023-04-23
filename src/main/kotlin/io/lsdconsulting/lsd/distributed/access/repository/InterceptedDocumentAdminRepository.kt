@@ -2,8 +2,8 @@ package io.lsdconsulting.lsd.distributed.access.repository
 
 import io.lsdconsulting.lsd.distributed.access.model.InterceptedFlow
 
-private const val DEFAULT_RESULT_SIZE = 10
+private const val DEFAULT_RESULT_SIZE_LIMIT = 10
 
 interface InterceptedDocumentAdminRepository {
-    fun findRecentFlows(resultSize: Int = DEFAULT_RESULT_SIZE): List<InterceptedFlow>
+    fun findRecentFlows(resultSizeLimit: Int = DEFAULT_RESULT_SIZE_LIMIT): List<InterceptedFlow>
 }
