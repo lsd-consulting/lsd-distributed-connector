@@ -7,9 +7,9 @@ data class InterceptedInteraction(
     val body: String? = null,
     val requestHeaders: MutableMap<String, Collection<String>> = mutableMapOf(),
     val responseHeaders: Map<String, Collection<String>> = mutableMapOf(),
-    val serviceName: String? = null, // the calling service or the publisher or consumer
-    val target: String? = null, // the called service or the exchange name
-    val path: String? = null, // the called URL or the exchange name
+    val serviceName: String, // the calling service or the publisher or consumer
+    val target: String, // the called service or the exchange/topic name
+    val path: String, // the called URL or the exchange/topic name
     val httpStatus: String? = null,
     val httpMethod: String? = null,
     val interactionType: InteractionType,
