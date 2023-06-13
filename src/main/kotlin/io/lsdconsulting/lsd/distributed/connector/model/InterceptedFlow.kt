@@ -1,4 +1,4 @@
-package io.lsdconsulting.lsd.distributed.access.model
+package io.lsdconsulting.lsd.distributed.connector.model
 
 data class InterceptedFlow(
     var initialInteraction: InterceptedInteraction,

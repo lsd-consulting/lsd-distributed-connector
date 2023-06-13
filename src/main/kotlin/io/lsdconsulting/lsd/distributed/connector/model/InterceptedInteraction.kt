@@ -1,4 +1,4 @@
-package io.lsdconsulting.lsd.distributed.access.model
+package io.lsdconsulting.lsd.distributed.connector.model
 
 import java.time.ZonedDateTime
 

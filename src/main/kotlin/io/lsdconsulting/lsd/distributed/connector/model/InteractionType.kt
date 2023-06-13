@@ -1,4 +1,4 @@
-package io.lsdconsulting.lsd.distributed.access.model
+package io.lsdconsulting.lsd.distributed.connector.model
 
 enum class InteractionType {
     REQUEST, RESPONSE, PUBLISH, CONSUME

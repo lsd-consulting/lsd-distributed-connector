@@ -1,6 +1,6 @@
-package io.lsdconsulting.lsd.distributed.access.repository
+package io.lsdconsulting.lsd.distributed.connector.repository
 
-import io.lsdconsulting.lsd.distributed.access.model.InterceptedInteraction
+import io.lsdconsulting.lsd.distributed.connector.model.InterceptedInteraction
 
 interface InterceptedDocumentRepository {
     fun save(interceptedInteraction: InterceptedInteraction)

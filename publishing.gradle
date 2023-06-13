@@ -2,12 +2,13 @@ jar {
     enabled = true
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
+tasks.register('sourcesJar', Jar) {
+    dependsOn classes
     archiveClassifier.set('sources')
     from sourceSets.main.allSource
 }
 
-task javadocJar(type: Jar) {
+tasks.register('javadocJar', Jar) {
     archiveClassifier.set('javadoc')
     from javadoc
 }
@@ -22,16 +23,16 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId = "$group"
-            artifactId = 'lsd-distributed-data-access'
+            artifactId = 'lsd-distributed-connector'
             version = "$version"
 
             from components.java
             artifact sourcesJar
             artifact javadocJar
             pom {
-                name = 'lsd-distributed-data-access'
-                description = 'This projects defines the data access interface for the distributed data storage.'
-                url = 'https://github.com/lsd-consulting/lsd-distributed-data-access'
+                name = 'lsd-distributed-connector'
+                description = 'This projects defines the connector interface for the distributed data storage.'
+                url = 'https://github.com/lsd-consulting/lsd-distributed-connector'
                 licenses {
                     license {
                         name = "The Apache Software License, Version 2.0"
@@ -54,7 +55,7 @@ publishing {
                     }
                 }
                 scm {
-                    url = "https://github.com/lsd-consulting/lsd-distributed-data-access.git"
+                    url = "https://github.com/lsd-consulting/lsd-distributed-connector.git"
                 }
             }
             repositories {
