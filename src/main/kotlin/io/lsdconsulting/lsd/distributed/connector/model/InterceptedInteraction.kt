@@ -1,7 +1,10 @@
 package io.lsdconsulting.lsd.distributed.connector.model
 
+import io.lsdconsulting.lsd.distributed.connector.serialization.ZonedDateTimeSerializer
+import kotlinx.serialization.Serializable
 import java.time.ZonedDateTime
 
+@Serializable
 data class InterceptedInteraction(
     val traceId: String,
     val body: String? = null,
@@ -15,5 +18,6 @@ data class InterceptedInteraction(
     val interactionType: InteractionType,
     val profile: String? = null,
     val elapsedTime: Long,
+    @Serializable(ZonedDateTimeSerializer::class)
     val createdAt: ZonedDateTime,
 )
