@@ -5,7 +5,8 @@ plugins {
     id 'jacoco'
     id 'io.github.gradle-nexus.publish-plugin' version '2.0.0'
     id 'com.palantir.git-version' version '3.1.0'
-    id 'org.jetbrains.kotlin.jvm' version '2.0.21'
+    id 'org.jetbrains.kotlin.jvm' version '2.1.0'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '2.1.0'
 }
 
 group = 'io.github.lsd-consulting'
@@ -25,12 +26,13 @@ repositories {
 
 jacocoTestReport {
     reports {
-        xml.enabled(true)
-        html.enabled(true)
-        html.setDestination(project.provider(() -> new File("${project.buildDir}/reports/coverage")))
+        xml.required = true
+        html.required = true
+        html.outputLocation = layout.buildDirectory.dir('${project.buildDir}/reports/coverage")')
     }
 }
 
+apply from: 'dependencies.gradle'
 apply from: 'test.gradle'
 apply from: 'publishing.gradle'
 apply from: 'hooks.gradle'
