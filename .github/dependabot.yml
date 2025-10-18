@@ -2,14 +2,14 @@
 
 version: 2
 updates:
-  # Test dependencies - does not trigger semantic releases (processed first)
+  # Production dependencies - triggers semantic releases
   - package-ecosystem: "gradle"
     directory: "/"
     target-branch: "main"
     schedule:
       interval: "daily"
     commit-message:
-      prefix: "test"  # Does not trigger semantic release
+      prefix: "fix"  # Does not trigger semantic release
     open-pull-requests-limit: 5
     groups:
       testing-dependencies:
