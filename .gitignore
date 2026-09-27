@@ -8,6 +8,7 @@ classes/
 out/
 target/
 log/
+.kotlin
 
 ### Gradle ###
 .gradle/
